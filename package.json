@@ -1,0 +1,77 @@
+{
+	"name": "import-export-menu",
+	"version": "1.1.0",
+	"description": "This plugin allows you to export and import menus in WordPress, making it easier to manage and migrate menu structures between sites.",
+	"author": "Yuky Hendiawan",
+	"license": "GPL-2.0-or-later",
+	"keywords": [
+		"WordPress",
+		"plugin"
+	],
+	"homepage": "https://github.com/yukyhendiawan/import-export-menu",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/yukyhendiawan/import-export-menu.git"
+	},
+	"bugs": {
+		"url": "https://github.com/yukyhendiawan/import-export-menu/issues"
+	},
+	"main": "index.js",
+	"dependencies": {
+		"@wordpress/scripts": "^28.3.0",
+		"release": "^6.3.1"
+	},	
+	"devDependencies": {
+		"@commitlint/cli": "^19.3.0",
+		"@commitlint/config-conventional": "^19.2.2",
+		"@release-it/conventional-changelog": "^8.0.1",
+		"husky": "^9.0.11",
+		"lint-staged": "^15.2.7",
+		"npm-check-updates": "^16.14.20",
+		"release-it": "^17.5.0"
+	},
+	"scripts": {
+		"check-updates": "ncu",
+		"update-packages": "ncu -u",
+		"check:php:compatibility:56+": "./vendor/bin/phpcs -p . --standard=phpcs.xml --extensions=php --ignore=*/vendor/*,*/node_modules/*",
+		"check:php:compatibility:wp:56+": "./vendor/bin/phpcs -p . --standard=phpcs.xml --extensions=php --ignore=*/vendor/*,*/node_modules/*",
+		"lint:wpcs": "./vendor/bin/phpcs --standard=phpcs.xml",
+		"lint:js": "wp-scripts lint-js",
+		"lint:js:fix": "wp-scripts lint-js --fix",
+		"lint:css": "wp-scripts lint-style",
+		"lint:css:fix": "wp-scripts lint-style --fix",
+		"lint:pkg:json": "wp-scripts lint-pkg-json",
+		"lint:readme:md": "wp-scripts lint-md-docs README.md",
+		"prepare": "husky",
+		"release": "release-it"
+	},
+	"release-it": {
+		"git": {
+			"commitMessage": "chore: release v${version}"
+		},
+		"github": {
+			"release": true
+		},
+		"npm": {
+			"publish": false
+		},
+		"plugins": {
+			"@release-it/conventional-changelog": {
+				"infile": "CHANGELOG.md",
+				"preset": {
+					"name": "conventionalcommits",
+					"types": [
+						{
+							"type": "feat",
+							"section": "Features"
+						},
+						{
+							"type": "fix",
+							"section": "Bug Fixes"
+						}
+					]
+				}
+			}
+		}
+	}
+}
