@@ -35,7 +35,7 @@ if ( ! defined( 'WPINC' ) ) {
  * Rename this for your plugin and update it as you release new versions.
  */
 define( 'PLUGIN_NAME', 'Import Export Menu' );
-define( 'IMPORT_EXPORT_MENU_VERSION', '1.1.0' );
+define( 'IMPORT_EXPORT_MENU_VERSION', '1.2.0' );
 
 /**
  * The code that runs during plugin activation.
