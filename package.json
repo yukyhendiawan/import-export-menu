@@ -35,6 +35,7 @@
 		"update-packages": "ncu -u",
 		"check:php:compatibility:56+": "./vendor/bin/phpcs -p . --standard=phpcs.xml --extensions=php --ignore=*/vendor/*,*/node_modules/*",
 		"check:php:compatibility:wp:56+": "./vendor/bin/phpcs -p . --standard=phpcs.xml --extensions=php --ignore=*/vendor/*,*/node_modules/*",
+		"dist": "bash ./bin/dist.sh",
 		"lint:wpcs": "./vendor/bin/phpcs --standard=phpcs.xml",
 		"lint:js": "wp-scripts lint-js",
 		"lint:js:fix": "wp-scripts lint-js --fix",
