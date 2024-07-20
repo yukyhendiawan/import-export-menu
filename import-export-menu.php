@@ -12,7 +12,7 @@
  * @package           Import_Export_Menu
  *
  * @wordpress-plugin
- * Plugin Name:       Import Expot Menu
+ * Plugin Name:       Import Export Menu
  * Plugin URI:        https://yukyhendiawan.com
  * Description:       This plugin allows you to export and import menus in WordPress, making it easier to manage and migrate menu structures between sites.
  * Version:           1.2.1
@@ -41,7 +41,7 @@ define( 'IMPORT_EXPORT_MENU_VERSION', '1.2.1' );
  * The code that runs during plugin activation.
  * This action is documented in includes/class-import-export-menu-activator.php
  */
-function activate_import_export_menu() {
+function import_export_menu_activate() {
 	require_once plugin_dir_path( __FILE__ ) . 'includes/class-import-export-menu-activator.php';
 	Import_Export_Menu_Activator::activate();
 }
@@ -50,13 +50,13 @@ function activate_import_export_menu() {
  * The code that runs during plugin deactivation.
  * This action is documented in includes/class-import-export-menu-deactivator.php
  */
-function deactivate_import_export_menu() {
+function import_export_menu_deactivate() {
 	require_once plugin_dir_path( __FILE__ ) . 'includes/class-import-export-menu-deactivator.php';
 	Import_Export_Menu_Deactivator::deactivate();
 }
 
-register_activation_hook( __FILE__, 'activate_import_export_menu' );
-register_deactivation_hook( __FILE__, 'deactivate_import_export_menu' );
+register_activation_hook( __FILE__, 'import_export_menu_activate' );
+register_deactivation_hook( __FILE__, 'import_export_menu_deactivate' );
 
 /**
  * The core plugin class that is used to define internationalization,
@@ -73,9 +73,9 @@ require plugin_dir_path( __FILE__ ) . 'includes/class-import-export-menu.php';
  *
  * @since    1.0.0
  */
-function run_import_export_menu() {
+function import_export_menu_run() {
 
 	$plugin = new Import_Export_Menu();
 	$plugin->run();
 }
-run_import_export_menu();
+import_export_menu_run();

@@ -11,6 +11,11 @@
  * @subpackage Import_Export_Menu/admin/partials
  */
 
+// Exit if accessed directly.
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 ?>
 
 <div class="wrap">

@@ -25,10 +25,10 @@
 		"@commitlint/cli": "^19.3.0",
 		"@commitlint/config-conventional": "^19.2.2",
 		"@release-it/conventional-changelog": "^8.0.1",
-		"husky": "^9.0.11",
+		"husky": "^9.1.1",
 		"lint-staged": "^15.2.7",
 		"npm-check-updates": "^16.14.20",
-		"release-it": "^17.5.0"
+		"release-it": "^17.6.0"
 	},
 	"scripts": {
 		"check-updates": "ncu",
@@ -41,7 +41,7 @@
 		"lint:css": "wp-scripts lint-style",
 		"lint:css:fix": "wp-scripts lint-style --fix",
 		"lint:pkg:json": "wp-scripts lint-pkg-json",
-		"lint:readme:md": "wp-scripts lint-md-docs README.md",
+		"lint:md:docs": "wp-scripts lint-md-docs README.md",
 		"prepare": "husky",
 		"release": "release-it"
 	},

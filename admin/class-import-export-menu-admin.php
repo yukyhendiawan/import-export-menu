@@ -170,7 +170,7 @@ class Import_Export_Menu_Admin {
 	 */
 	public function import_export_menu_display_page() {
 		// Include the partial file that contains the HTML content.
-		include plugin_dir_path( __FILE__ ) . 'partials/export-import-menu.php';
+		include plugin_dir_path( __FILE__ ) . 'partials/import-export-menu.php';
 	}
 
 	/**
@@ -473,7 +473,7 @@ class Import_Export_Menu_Admin {
 		$target_path = $upload_dir['path'] . '/' . basename( $uploaded_file['name'] );
 
 		// Move the uploaded file to the target directory.
-		if ( move_uploaded_file( $uploaded_file['tmp_name'], $target_path ) ) {
+		if ( wp_handle_upload( $uploaded_file['tmp_name'], $target_path ) ) {
 
 			if ( file_exists( $target_path ) ) {
 				// phpcs:ignore
