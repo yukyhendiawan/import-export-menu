@@ -543,6 +543,17 @@ class Import_Export_Menu_Admin {
 					$this->update_parent_id( $menu_id, $args );
 
 				}
+			} else {
+				// If no menus are found, send an error message.
+				wp_send_json_error(
+					array(
+						'message' => esc_html__( 'No menus found to import.', 'import-export-menu' ),
+						'status'  => esc_html__( 'Error!', 'import-export-menu' ),
+					)
+				);
+
+				// End processing.
+				wp_die();
 			}
 
 			// Send a success response with the file URL if the file is successfully uploaded.
