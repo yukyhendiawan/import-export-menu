@@ -480,6 +480,17 @@ class Import_Export_Menu_Admin {
 				$json_content = file_get_contents( $target_path );
 
 				$menus = json_decode( $json_content, false );
+			} else {
+				// If the file does not exist or there is a permission issue, send an error message.
+				wp_send_json_error(
+					array(
+						'message' => esc_html__( 'File not found or there is a permission issue.', 'import-export-menu' ),
+						'status'  => esc_html__( 'Error!', 'import-export-menu' ),
+					)
+				);
+			
+				// End processing.
+				wp_die();
 			}
 
 			// Loop through each menu.
