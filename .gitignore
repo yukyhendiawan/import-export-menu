@@ -1,8 +1,6 @@
 .husky
 .vscode
-.eslintrc
-.eslintignore
+artifact
+dist
 node_modules
 vendor
-package-lock.json
-composer.lock

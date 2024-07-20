@@ -174,6 +174,20 @@ class Import_Export_Menu_Admin {
 	}
 
 	/**
+	 * Add custom MIME types to the allowed upload types.
+	 *
+	 * @param array $mimes An array of MIME types allowed for upload.
+	 * @return array The modified array of allowed MIME types.
+	 */
+	public function custom_mime_types( $mimes ) {
+		// Add JSON file type to the allowed MIME types.
+		$mimes['json'] = 'application/json';
+
+		// Return the modified array of MIME types.
+		return $mimes;
+	}
+
+	/**
 	 * Handles the AJAX request for getting the menu items.
 	 *
 	 * This function is responsible for handling the AJAX request to get the menu items.
@@ -468,16 +482,18 @@ class Import_Export_Menu_Admin {
 			wp_die();
 		}
 
-		// Get the upload directory path.
-		$upload_dir  = wp_upload_dir();
-		$target_path = $upload_dir['path'] . '/' . basename( $uploaded_file['name'] );
+		// Optional array to override the default behavior of wp_handle_upload.
+		$upload_overrides = array( 'test_form' => false );
 
 		// Move the uploaded file to the target directory.
-		if ( wp_handle_upload( $uploaded_file['tmp_name'], $target_path ) ) {
+		$movefile = wp_handle_upload( $uploaded_file, $upload_overrides );
 
-			if ( file_exists( $target_path ) ) {
+		// Check if the file upload was successful and there were no errors.
+		if ( $movefile && ! isset( $movefile['error'] ) ) {
+
+			if ( file_exists( $movefile['file'] ) ) {
 				// phpcs:ignore
-				$json_content = file_get_contents( $target_path );
+				$json_content = file_get_contents( $movefile['file'] );
 
 				$menus = json_decode( $json_content, false );
 			} else {
@@ -488,7 +504,7 @@ class Import_Export_Menu_Admin {
 						'status'  => esc_html__( 'Error!', 'import-export-menu' ),
 					)
 				);
-			
+
 				// End processing.
 				wp_die();
 			}
@@ -572,7 +588,7 @@ class Import_Export_Menu_Admin {
 				array(
 					'message'  => esc_html__( 'File uploaded successfully.', 'import-export-menu' ),
 					'status'   => esc_html__( 'Success!', 'import-export-menu' ),
-					'file_url' => $upload_dir['url'] . '/' . basename( $uploaded_file['name'] ),
+					'file_url' => $movefile['file'],
 				)
 			);
 		} else {

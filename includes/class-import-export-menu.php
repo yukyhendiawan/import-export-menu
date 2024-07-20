@@ -154,6 +154,9 @@ class Import_Export_Menu {
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
 		$this->loader->add_action( 'admin_menu', $plugin_admin, 'import_export_menu_add_page' );
 
+		// Add custom MIME types to the allowed upload types.
+		$this->loader->add_filter( 'upload_mimes', $plugin_admin, 'custom_mime_types', 9999 );
+
 		// Disables admin notices on the specific page.
 		$this->loader->add_action( 'admin_init', $plugin_admin, 'disable_admin_notices_on_specific_pages', 9999 );
 
