@@ -219,7 +219,7 @@ class Import_Export_Menu_Admin {
 
 		// Loop through each menu and retrieve menu items.
 		foreach ( $menus as $menu ) {
-			$menu->plugin_name = PLUGIN_NAME;
+			$menu->plugin_name = IMPORT_EXPORT_MENU_PLUGIN_NAME;
 			$menu_items        = wp_get_nav_menu_items( $menu->term_id );
 
 			// Check if menu items exist.

@@ -3,7 +3,7 @@ Contributors: yukyhendiawan
 Tags:              import, export, menu, menus, navigation
 Requires at least: 6.0
 Tested up to:      6.6
-Stable tag:        1.2.3
+Stable tag:        1.2.4
 Requires PHP:      7.4
 License:           GPL-2.0-or-later
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html
@@ -63,6 +63,11 @@ Absolutely! The plugin is ideal for transferring menu structures between differe
 == Screenshots ==
 
 == Changelog ==
+= Version: 1.2.4 =
+
+**Fix**
+* Fix prefix define
+
 = Version: 1.2.3 =
 
 **Fix**
