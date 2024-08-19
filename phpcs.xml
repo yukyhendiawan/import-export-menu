@@ -36,10 +36,10 @@
 		Files or directories that match this pattern will be excluded from the PHPCS inspection.  
 	-->
 	<exclude-pattern>note.php</exclude-pattern>
-	<exclude-pattern>/vendor/*</exclude-pattern>
-	<exclude-pattern>/node_modules/*</exclude-pattern>
-	<exclude-pattern>*.min.js</exclude-pattern>
-	<exclude-pattern>*.min.css</exclude-pattern>
+	<exclude-pattern>vendor</exclude-pattern>
+	<exclude-pattern>node_modules</exclude-pattern>
+	<exclude-pattern>.min.js</exclude-pattern>
+	<exclude-pattern>.min.css</exclude-pattern>
 
 	<!--
 	=========================================================================

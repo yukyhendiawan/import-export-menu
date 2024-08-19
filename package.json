@@ -16,63 +16,67 @@
 	"bugs": {
 		"url": "https://github.com/yukyhendiawan/import-export-menu/issues"
 	},
+	"type": "module",
 	"main": "index.js",
 	"dependencies": {
-		"@wordpress/scripts": "^28.3.0",
-		"release": "^6.3.1"
-	},	
+		"@wordpress/scripts": "^28.5.0",
+		"release": "^6.3.1",
+		"sort-keys": "^5.0.0"
+	},
 	"devDependencies": {
-		"@commitlint/cli": "^19.3.0",
+		"@commitlint/cli": "^19.4.0",
 		"@commitlint/config-conventional": "^19.2.2",
 		"@release-it/conventional-changelog": "^8.0.1",
-		"husky": "^9.1.1",
-		"lint-staged": "^15.2.7",
-		"npm-check-updates": "^16.14.20",
-		"release-it": "^17.6.0"
+		"browser-sync": "^3.0.2",
+		"gulp": "^5.0.0",
+		"gulp-clean-css": "^4.3.0",
+		"gulp-rename": "^2.0.0",
+		"gulp-sass": "^5.1.0",
+		"gulp-sourcemaps": "^3.0.0",
+		"gulp-uglify": "^3.0.2",
+		"husky": "^9.1.4",
+		"lint-staged": "^15.2.9",
+		"npm-check-updates": "^17.0.6",
+		"npm-run-all": "^4.1.5",
+		"prettier": "3.3.3",
+		"release-it": "^17.6.0",
+		"sort-package-json": "^2.10.0"
 	},
 	"scripts": {
+		"build:all": "gulp buildAll",
+		"build:js": "gulp buildJS",
+		"build:sass": "gulp buildSass",
 		"check-updates": "ncu",
-		"update-packages": "ncu -u",
 		"check:php:compatibility:56+": "./vendor/bin/phpcs -p . --standard=phpcs.xml --extensions=php --ignore=*/vendor/*,*/node_modules/*",
 		"check:php:compatibility:wp:56+": "./vendor/bin/phpcs -p . --standard=phpcs.xml --extensions=php --ignore=*/vendor/*,*/node_modules/*",
 		"dist": "bash ./bin/dist.sh",
-		"lint:wpcs": "./vendor/bin/phpcs --standard=phpcs.xml",
-		"lint:js": "wp-scripts lint-js",
-		"lint:js:fix": "wp-scripts lint-js --fix",
+		"lint": "npm-run-all lint:*",
 		"lint:css": "wp-scripts lint-style",
+		"lint:css:assets": "wp-scripts lint-style './assets/css/*.css'",
+		"lint:css:assets:fix": "wp-scripts lint-style './assets/css/*.css' --fix",
 		"lint:css:fix": "wp-scripts lint-style --fix",
-		"lint:pkg:json": "wp-scripts lint-pkg-json",
+		"lint:js": "wp-scripts lint-js",
+		"lint:js:assets": "wp-scripts lint-js './assets/js/*.js'",
+		"lint:js:assets:fix": "wp-scripts lint-js './assets/js/*.js' --fix",
+		"lint:js:fix": "wp-scripts lint-js --fix",
+		"lint:js:src": "wp-scripts lint-js './src/assets/js/*.js'",
+		"lint:js:src:fix": "wp-scripts lint-js './src/assets/js/*.js' --fix",
 		"lint:md:docs": "wp-scripts lint-md-docs README.md",
+		"lint:pkg:json": "wp-scripts lint-pkg-json",
+		"lint:scss": "wp-scripts lint-style './src/assets/scss/**/*.scss'",
+		"lint:scss:fix": "wp-scripts lint-style './src/assets/scss/**/*.scss' --fix",
+		"lint:wpcs": "./vendor/bin/phpcs --standard=phpcs.xml",
+		"lint:wpcs:fix": "./vendor/bin/phpcbf --standard=phpcs.xml --report-summary --report-source",
 		"prepare": "husky",
-		"release": "release-it"
-	},
-	"release-it": {
-		"git": {
-			"commitMessage": "chore: release v${version}"
-		},
-		"github": {
-			"release": true
-		},
-		"npm": {
-			"publish": false
-		},
-		"plugins": {
-			"@release-it/conventional-changelog": {
-				"infile": "CHANGELOG.md",
-				"preset": {
-					"name": "conventionalcommits",
-					"types": [
-						{
-							"type": "feat",
-							"section": "Features"
-						},
-						{
-							"type": "fix",
-							"section": "Bug Fixes"
-						}
-					]
-				}
-			}
-		}
+		"prettier:check": "npx prettier . --check",
+		"prettier:write": "npx prettier . --write",
+		"release": "release-it",
+		"sort:composer": "node sortComposerJson.js",
+		"sort:package": "node sortPackageJson.js",
+		"update-packages": "ncu -u",
+		"update-version": "bash ./bin/update-version.sh",
+		"watch:all": "gulp watchFiles",
+		"watch:js": "gulp watchJS",
+		"watch:sass": "gulp watchSass"
 	}
 }

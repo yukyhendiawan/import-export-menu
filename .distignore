@@ -12,6 +12,9 @@ vendor
 .eslintrc
 .gitignore
 .lintstagedrc
+.prettierignore
+.prettierrc
+.release-it.json
 .stylelintignore
 .stylelintrc
 composer.json
@@ -20,3 +23,5 @@ package-lock.json
 package.json
 phpcs.xml
 README.md
+sortComposerJson.js
+sortPackageJson.js

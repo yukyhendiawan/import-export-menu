@@ -1,5 +1,4 @@
-build/
-node_modules/
-vendor/
-gulp/
-**/*.min.js
+build
+node_modules
+vendor
+*.min.js
