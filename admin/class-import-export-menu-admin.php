@@ -54,7 +54,7 @@ class Import_Export_Menu_Admin {
 
 	public function enqueue_styles( $hook ) {
 
-		if ( 'toplevel_page_import-export-menu' === $hook || 'import-export-menu_page_about' === $hook ) {
+		if ( 'toplevel_page_import-export-menu' === $hook || 'import-export-menu_page_import-export-menu-about' === $hook ) {
 			wp_enqueue_style( $this->plugin_name, plugins_url( 'import-export-menu' ) . '/assets/css/import-export-menu-admin.min.css', array(), $this->version );
 		}			
 	
@@ -100,7 +100,7 @@ class Import_Export_Menu_Admin {
 
 		// Check if the current page is in the WordPress admin area.
 		if ( is_admin() ) {
-			if ( 'import-export-menu' === $plugin_page ) {
+			if ( 'import-export-menu' === $plugin_page || 'import-export-menu-about' === $plugin_page ) {
 				remove_all_actions( 'admin_notices' );
 			}
 		}
@@ -143,7 +143,7 @@ class Import_Export_Menu_Admin {
 			__( 'About', 'import-export-menu' ), // Page title.
 			__( 'About', 'import-export-menu' ), // Menu title.
 			'manage_options', // Capability required.
-			'about', // Menu slug.
+			'import-export-menu-about', // Menu slug.
 			array( $this, 'callback_template_for_about_menu' ) // Callback function.		
 		);
 	}
