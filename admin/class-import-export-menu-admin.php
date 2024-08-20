@@ -52,38 +52,62 @@ class Import_Export_Menu_Admin {
 		$this->version     = $version;
 	}
 
+	/**
+	 * Enqueues the necessary CSS for the Import Export Menu admin page.
+	 *
+	 * @param string $hook The hook name for the current admin page.
+	 *
+	 * @return void
+	 */
 	public function enqueue_styles( $hook ) {
 
+		// Check if the current admin page is the Import Export Menu admin page or the About page.
 		if ( 'toplevel_page_import-export-menu' === $hook || 'import-export-menu_page_import-export-menu-about' === $hook ) {
-			wp_enqueue_style( $this->plugin_name, plugins_url( 'import-export-menu' ) . '/assets/css/import-export-menu-admin.min.css', array(), $this->version );
+			// Enqueue the CSS file for the Import Export Menu admin page.
+			wp_enqueue_style(
+				$this->plugin_name,
+				plugins_url( 'import-export-menu' ) . '/assets/css/import-export-menu-admin.min.css',
+				array(),
+				$this->version
+			);
 		}			
-	
+
 	}
 
+	/**
+	 * Enqueues the necessary scripts for the Import Export Menu admin page.
+	 *
+	 * This function is responsible for enqueuing the necessary scripts for the Import Export Menu admin page.
+	 * It checks if the current admin page is the Import Export Menu admin page or the "About" page.
+	 * If it is, it enqueues the SweetAlert JavaScript library, the main JavaScript file for the Import Export Menu admin page, and the admin-menu.min.js JavaScript file.
+	 * It also localizes the ajaxObject object, which contains the admin-ajax.php URL and a nonce for making AJAX requests.
+	 *
+	 * @param string $hook The hook name for the current admin page.
+	 *
+	 * @return void
+	 */	
 	public function enqueue_scripts( $hook ) {
 
-		// If not, exit the function to prevent unnecessary loading of the CSS stylesheet.
-		if ( 'toplevel_page_import-export-menu' !== $hook || 'import-export-menu_page_about' !== $hook ) {
-			return;
+		if ( 'toplevel_page_import-export-menu' === $hook || 'import-export-menu_page_import-export-menu-about' === $hook ) {
+			// Enqueue the SweetAlert JavaScript library.
+			wp_enqueue_script( $this->plugin_name . '-sweetalert', plugins_url( 'import-export-menu' ) . '/assets/js/sweetalert.min.js', array(), $this->version, true );
+
+			// Enqueue the main JavaScript file for the Import Export Menu admin page.
+			wp_enqueue_script( $this->plugin_name, plugins_url( 'import-export-menu' ) . '/assets/js/import-export-menu-admin.js', array( 'jquery' ), $this->version, true );
+
+			// Enqueue the admin-menu.min.js JavaScript file.
+			wp_enqueue_script( 'import-export-menu-script', plugins_url( 'import-export-menu' ) . '/assets/js/admin-menu.min.js', array(), $this->version, true );			
+
+			// Localize the ajaxObject object.
+			wp_localize_script(
+				$this->plugin_name,
+				'ajaxObject',
+				array(
+					'ajaxUrl' => admin_url( 'admin-ajax.php' ),
+					'nonce'   => wp_create_nonce( 'ajax-nonce' ),
+				)
+			);
 		}			
-
-		// Sweetalert.
-		wp_enqueue_script( $this->plugin_name . '-sweetalert', plugin_dir_url( __FILE__ ) . 'js/sweetalert.min.js', array(), $this->version, true );
-
-		// Script.
-		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/import-export-menu-admin.js', array( 'jquery' ), $this->version, true );
-
-		// Enqueue the admin JavaScript file with jQuery as a dependency.
-		wp_enqueue_script( 'import-export-menu-script', plugins_url( 'import-export-menu' ) . '/assets/js/admin-menu.min.js', array(), $this->version, true );			
-
-		wp_localize_script(
-			$this->plugin_name,
-			'ajaxObject',
-			array(
-				'ajaxUrl' => admin_url( 'admin-ajax.php' ),
-				'nonce'   => wp_create_nonce( 'ajax-nonce' ),
-			)
-		);
 	}
 
 	/**
