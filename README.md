@@ -5,23 +5,23 @@ The Menu Import & Export plugin provides an easy and efficient way to manage you
 == Installation ==
 
 1. Open WordPress Dashboard:
-Log in to your WordPress dashboard.
+   Log in to your WordPress dashboard.
 
 2. Access Plugin Menu:
-On the left panel, click "Plugins" and select "Add New."
+   On the left panel, click "Plugins" and select "Add New."
 
 3. Search for "Menu Import & Export":
-On the Add Plugin page, locate the search box in the top right corner.
-Type "Menu Import & Export" in the search box.
+   On the Add Plugin page, locate the search box in the top right corner.
+   Type "Menu Import & Export" in the search box.
 
 4. Install the Plugin:
-After finding the "Menu Import & Export" plugin, click the "Install Now" button below it.
+   After finding the "Menu Import & Export" plugin, click the "Install Now" button below it.
 
 5. Activate the Plugin:
-Once the installation is complete, click the "Activate" button that appears.
+   Once the installation is complete, click the "Activate" button that appears.
 
 6. You're Ready to Use the Plugin:
-After activation, navigate to the "Menu Import & Export" section in your WordPress dashboard to start importing and exporting menus.
+   After activation, navigate to the "Menu Import & Export" section in your WordPress dashboard to start importing and exporting menus.
 
 ## FAQ
 
