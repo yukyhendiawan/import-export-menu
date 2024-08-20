@@ -62,7 +62,7 @@ class Import_Export_Menu_Admin {
 	public function enqueue_styles( $hook ) {
 
 		// Check if the current admin page is the Import Export Menu admin page or the About page.
-		if ( 'toplevel_page_import-export-menu' === $hook || 'import-export_page_information' === $hook ) {
+		if ( 'toplevel_page_import-export-menu' === $hook || 'import-export-menu_page_information' === $hook ) {
 			// Enqueue the CSS file for the Import Export Menu admin page.
 			wp_enqueue_style(
 				$this->plugin_name,
@@ -87,7 +87,7 @@ class Import_Export_Menu_Admin {
 	 */
 	public function enqueue_scripts( $hook ) {
 
-		if ( 'toplevel_page_import-export-menu' === $hook || 'import-export_page_information' === $hook ) {
+		if ( 'toplevel_page_import-export-menu' === $hook || 'import-export-menu_page_information' === $hook ) {
 			// Enqueue the SweetAlert JavaScript library.
 			wp_enqueue_script( $this->plugin_name . '-sweetalert', plugins_url( 'import-export-menu' ) . '/assets/js/sweetalert.min.js', array(), $this->version, true );
 
