@@ -138,8 +138,11 @@
 			}
 
 			.boxes-sosmed {
+
 				ul {
+
 					li {
+
 						a {
 							display: flex;
 							flex-wrap: wrap;
@@ -147,7 +150,7 @@
 							text-decoration: none;
 							color: #756275;
 							background: transparent;
-							font-weight: normal;
+							font-weight: 400;
 							width: auto;
 							text-transform: none;
 							margin: 0;
@@ -244,7 +247,7 @@
 						border-color: transparent;
 
 						&:focus {
-							border-color: currentColor;
+							border-color: currentcolor;
 						}
 
 						svg {
@@ -337,6 +340,7 @@
 
 	// Content
 	section.data-content {
+
 		.mycontainer {
 
 			.myrow {
@@ -443,7 +447,6 @@
 						padding: 0;
 
 						li {
-							margin-bottom: 12px;
 							font-size: 15px;
 							line-height: 1.6;
 							margin: 0;
@@ -492,8 +495,11 @@
 
 	// General
 	section.general {
+
 		.mycontainer {
+
 			.myrow {
+
 				.col-left {
 
 					ol,
@@ -519,12 +525,16 @@
 
 	// Report.
 	section.report {
+
 		.mycontainer {
+
 			.myrow {
+
 				.col-left {
+
 					span.email {
 						display: block;
-						font-weight: bold;
+						font-weight: 700;
 						text-transform: lowercase;
 					}
 
@@ -760,6 +770,7 @@
 								}
 
 								ul:last-child {
+
 									li:last-child {
 										margin-bottom: 0;
 									}
@@ -824,6 +835,7 @@
 }
 
 @media only screen and (max-width: 768px) {
+
 	.wrap {
 
 		// Header
@@ -835,7 +847,9 @@
 					padding: 40px 15px;
 
 					.col-left {
+
 						h2 {
+
 							span {
 								top: -15px;
 							}

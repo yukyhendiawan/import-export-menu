@@ -110,7 +110,7 @@
 		formData.append( 'nonce', ajaxObject.nonce );
 
 		// Active loader.
-		$( '.wrap .loader').css('display', 'flex');
+		$( '.wrap .loader' ).css( 'display', 'flex' );
 
 		$.ajax( {
 			url: ajaxObject.ajaxUrl,
@@ -120,7 +120,7 @@
 			data: formData,
 			success( response ) {
 				// Deactive loader.
-				$( '.wrap .loader').css('display', 'none');
+				$( '.wrap .loader' ).css( 'display', 'none' );
 				if ( response.success ) {
 					swal( {
 						title: 'Success!',
@@ -139,7 +139,7 @@
 			},
 			error() {
 				// Deactive loader.
-				$( '.wrap .loader').css('display', 'none');				
+				$( '.wrap .loader' ).css( 'display', 'none' );
 				swal( {
 					title: 'Upps!',
 					text: 'Oops! An error occurred or failed.',

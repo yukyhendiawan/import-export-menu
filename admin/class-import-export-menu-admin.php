@@ -62,7 +62,7 @@ class Import_Export_Menu_Admin {
 	public function enqueue_styles( $hook ) {
 
 		// Check if the current admin page is the Import Export Menu admin page or the About page.
-		if ( 'toplevel_page_import-export-menu' === $hook || 'import-export-menu_page_information' === $hook ) {
+		if ( 'toplevel_page_import-export-menu' === $hook || 'import-export_page_information' === $hook ) {
 			// Enqueue the CSS file for the Import Export Menu admin page.
 			wp_enqueue_style(
 				$this->plugin_name,
@@ -70,8 +70,7 @@ class Import_Export_Menu_Admin {
 				array(),
 				$this->version
 			);
-		}			
-
+		}
 	}
 
 	/**
@@ -85,10 +84,10 @@ class Import_Export_Menu_Admin {
 	 * @param string $hook The hook name for the current admin page.
 	 *
 	 * @return void
-	 */	
+	 */
 	public function enqueue_scripts( $hook ) {
 
-		if ( 'toplevel_page_import-export-menu' === $hook || 'import-export-menu_page_information' === $hook ) {
+		if ( 'toplevel_page_import-export-menu' === $hook || 'import-export_page_information' === $hook ) {
 			// Enqueue the SweetAlert JavaScript library.
 			wp_enqueue_script( $this->plugin_name . '-sweetalert', plugins_url( 'import-export-menu' ) . '/assets/js/sweetalert.min.js', array(), $this->version, true );
 
@@ -96,7 +95,7 @@ class Import_Export_Menu_Admin {
 			wp_enqueue_script( $this->plugin_name, plugins_url( 'import-export-menu' ) . '/assets/js/import-export-menu-admin.js', array( 'jquery' ), $this->version, true );
 
 			// Enqueue the admin-menu.min.js JavaScript file.
-			wp_enqueue_script( 'import-export-menu-script', plugins_url( 'import-export-menu' ) . '/assets/js/admin-menu.min.js', array(), $this->version, true );			
+			wp_enqueue_script( 'import-export-menu-script', plugins_url( 'import-export-menu' ) . '/assets/js/admin-menu.min.js', array(), $this->version, true );
 
 			// Localize the ajaxObject object.
 			wp_localize_script(
@@ -107,7 +106,7 @@ class Import_Export_Menu_Admin {
 					'nonce'   => wp_create_nonce( 'ajax-nonce' ),
 				)
 			);
-		}			
+		}
 	}
 
 	/**
@@ -151,15 +150,15 @@ class Import_Export_Menu_Admin {
 	 *
 	 * @return void
 	 */
-	function register_admin_menu_page() {
+	public function register_admin_menu_page() {
 		add_menu_page(
-			__( 'Import Export', 'import-export-menu' ), // Page title.
-			__( 'Import Export', 'import-export-menu' ), // Menu title.
+			__( 'Import Export Menu', 'import-export-menu' ), // Page title.
+			__( 'Import Export Menu', 'import-export-menu' ), // Menu title.
 			'manage_options', // Capability required.
 			'import-export-menu', // Menu slug.
 			array( $this, 'callback_template_for_import_export_menu' ), // Callback function.
 			'dashicons-admin-generic', // Icon URL.
-			30 // $position.		
+			30 // $position.
 		);
 
 		add_submenu_page(
@@ -168,7 +167,7 @@ class Import_Export_Menu_Admin {
 			__( 'Information', 'import-export-menu' ), // Menu title.
 			'manage_options', // Capability required.
 			'information', // Menu slug.
-			array( $this, 'callback_template_for_information_menu' ) // Callback function.		
+			array( $this, 'callback_template_for_information_menu' ) // Callback function.
 		);
 	}
 
@@ -178,7 +177,7 @@ class Import_Export_Menu_Admin {
 	 * This function constructs the path to the template file located
 	 * in the plugin directory and includes it if it exists.
 	 */
-	function callback_template_for_import_export_menu() {
+	public function callback_template_for_import_export_menu() {
 		// Define the path to the template file.
 		$template_path = plugin_dir_path( __FILE__ ) . 'partials/import-export-menu.php';
 
@@ -195,7 +194,7 @@ class Import_Export_Menu_Admin {
 	 * This function constructs the path to the template file located
 	 * in the plugin directory and includes it if it exists.
 	 */
-	function callback_template_for_information_menu() {
+	public function callback_template_for_information_menu() {
 		// Define the path to the template file.
 		$template_path = plugin_dir_path( __FILE__ ) . 'partials/content.php';
 
