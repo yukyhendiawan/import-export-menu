@@ -227,9 +227,11 @@
 .wrap header.top .mycontainer .myrow .col-left p {
 	font-size: 15px;
 	line-height: 1.6;
-	margin: 0;
 	text-transform: capitalize;
 	color: #fff;
+	max-width: 70%;
+	margin: 0 auto;
+	margin-top: 10px;
 }
 .wrap header.top .mycontainer .myrow .col-right {
 	display: flex;
@@ -446,6 +448,25 @@
 .wrap section.general .mycontainer .myrow .col-left ol,
 .wrap section.general .mycontainer .myrow .col-left ul {
 	margin: 0;
+	margin-left: 1.5em;
+	list-style: disc;
+}
+.wrap section.general .mycontainer .myrow .col-left h3 {
+	text-transform: capitalize;
+	color: #294960;
+	font-size: 22px;
+}
+.wrap section.general .mycontainer .myrow .col-left img {
+	width: 100%;
+}
+.wrap section.report .mycontainer .myrow .col-left span.email {
+	display: block;
+	font-weight: bold;
+	text-transform: lowercase;
+}
+.wrap section.report .mycontainer .myrow .col-left a.support {
+	display: inline-block;
+	text-transform: capitalize;
 }
 .wrap section.changelog.data-content .mycontainer .myrow {
 	display: flex;
@@ -690,6 +711,9 @@
 	}
 	.wrap header.top .mycontainer .myrow .col-left h2 span {
 		left: 85%;
+	}
+	.wrap header.top .mycontainer .myrow .col-left p {
+		max-width: 100%;
 	}
 	.wrap header.top .mycontainer .myrow .col-right {
 		flex-direction: column;

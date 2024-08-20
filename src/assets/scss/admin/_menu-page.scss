@@ -168,7 +168,7 @@
 					}
 				}
 			}
-		}		
+		}
 	}
 
 	// Header
@@ -213,9 +213,11 @@
 					p {
 						font-size: 15px;
 						line-height: 1.6;
-						margin: 0;
 						text-transform: capitalize;
 						color: #fff;
+						max-width: 70%;
+						margin: 0 auto;
+						margin-top: 10px;
 					}
 				}
 
@@ -315,7 +317,7 @@
 								box-shadow: none;
 								outline: 0;
 								border: none;
-							}							
+							}
 
 							a.active {
 								border-bottom: 2px solid #0060f3;
@@ -432,7 +434,7 @@
 								font-weight: 600;
 							}
 						}
-					}					
+					}
 
 					ol,
 					ul {
@@ -493,14 +495,47 @@
 		.mycontainer {
 			.myrow {
 				.col-left {
+
 					ol,
 					ul {
 						margin: 0;
+						margin-left: 1.5em;
+						list-style: disc;
+					}
+
+					h3 {
+						text-transform: capitalize;
+						color: #294960;
+						font-size: 22px;
+					}
+
+					img {
+						width: 100%;
 					}
 				}
 			}
 		}
-	}	
+	}
+
+	// Report.
+	section.report {
+		.mycontainer {
+			.myrow {
+				.col-left {
+					span.email {
+						display: block;
+						font-weight: bold;
+						text-transform: lowercase;
+					}
+
+					a.support {
+						display: inline-block;
+						text-transform: capitalize;
+					}
+				}
+			}
+		}
+	}
 
 	// Changelog
 	section.changelog.data-content {
@@ -571,7 +606,7 @@
 									&::before {
 										content: "F";
 									}
-								}										
+								}
 
 								span.fix {
 									background: #cb0000;
@@ -680,7 +715,7 @@
 											&::before {
 												content: "F";
 											}
-										}										
+										}
 
 										span.fix {
 											background: #cb0000;
@@ -700,7 +735,7 @@
 
 										span.style {
 											background: #e68a09;
-		
+
 											&::before {
 												content: "S";
 											}
@@ -708,7 +743,7 @@
 
 										span.refactor {
 											background: #0375f4;
-		
+
 											&::before {
 												content: "R";
 											}
@@ -716,7 +751,7 @@
 
 										span.perf {
 											background: #024578;
-		
+
 											&::before {
 												content: "P";
 											}
@@ -790,11 +825,12 @@
 
 @media only screen and (max-width: 768px) {
 	.wrap {
+
 		// Header
 		header.top {
 
 			.mycontainer {
-				 
+
 				.myrow {
 					padding: 40px 15px;
 
@@ -873,6 +909,10 @@
 								left: 85%;
 							}
 						}
+
+						p {
+							max-width: 100%;
+						}
 					}
 
 					.col-right {
@@ -910,7 +950,7 @@
 					}
 				}
 			}
-		}		
+		}
 
 		// Content
 		section.data-content {

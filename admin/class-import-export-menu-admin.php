@@ -62,7 +62,7 @@ class Import_Export_Menu_Admin {
 	public function enqueue_styles( $hook ) {
 
 		// Check if the current admin page is the Import Export Menu admin page or the About page.
-		if ( 'toplevel_page_import-export-menu' === $hook || 'import-export-menu_page_import-export-menu-about' === $hook ) {
+		if ( 'toplevel_page_import-export-menu' === $hook || 'import-export-menu_page_information' === $hook ) {
 			// Enqueue the CSS file for the Import Export Menu admin page.
 			wp_enqueue_style(
 				$this->plugin_name,
@@ -88,7 +88,7 @@ class Import_Export_Menu_Admin {
 	 */	
 	public function enqueue_scripts( $hook ) {
 
-		if ( 'toplevel_page_import-export-menu' === $hook || 'import-export-menu_page_import-export-menu-about' === $hook ) {
+		if ( 'toplevel_page_import-export-menu' === $hook || 'import-export-menu_page_information' === $hook ) {
 			// Enqueue the SweetAlert JavaScript library.
 			wp_enqueue_script( $this->plugin_name . '-sweetalert', plugins_url( 'import-export-menu' ) . '/assets/js/sweetalert.min.js', array(), $this->version, true );
 
@@ -124,7 +124,7 @@ class Import_Export_Menu_Admin {
 
 		// Check if the current page is in the WordPress admin area.
 		if ( is_admin() ) {
-			if ( 'import-export-menu' === $plugin_page || 'import-export-menu-about' === $plugin_page ) {
+			if ( 'import-export-menu' === $plugin_page || 'information' === $plugin_page ) {
 				remove_all_actions( 'admin_notices' );
 			}
 		}
@@ -164,11 +164,11 @@ class Import_Export_Menu_Admin {
 
 		add_submenu_page(
 			'import-export-menu', // Parent menu slug.
-			__( 'About', 'import-export-menu' ), // Page title.
-			__( 'About', 'import-export-menu' ), // Menu title.
+			__( 'Information', 'import-export-menu' ), // Page title.
+			__( 'Information', 'import-export-menu' ), // Menu title.
 			'manage_options', // Capability required.
-			'import-export-menu-about', // Menu slug.
-			array( $this, 'callback_template_for_about_menu' ) // Callback function.		
+			'information', // Menu slug.
+			array( $this, 'callback_template_for_information_menu' ) // Callback function.		
 		);
 	}
 
@@ -190,12 +190,12 @@ class Import_Export_Menu_Admin {
 	}
 
 	/**
-	 * Loads the template for the 'About' menu page in the plugin.
+	 * Loads the template for the 'Information' menu page in the plugin.
 	 *
 	 * This function constructs the path to the template file located
 	 * in the plugin directory and includes it if it exists.
 	 */
-	function callback_template_for_about_menu() {
+	function callback_template_for_information_menu() {
 		// Define the path to the template file.
 		$template_path = plugin_dir_path( __FILE__ ) . 'partials/content.php';
 
