@@ -12,7 +12,7 @@ This plugin allows you to export and import menus in WordPress, making it easier
 
 == Description ==
 
-The Menu Import & Export plugin provides an easy and efficient way to manage your WordPress menus. With this plugin, you can seamlessly import and export your website menus, making it simple to transfer menu structures between different WordPress installations or to back up your menu configurations.
+The Import Export Menu plugin provides an easy and efficient way to manage your WordPress menus. With this plugin, you can seamlessly import and export your website menus, making it simple to transfer menu structures between different WordPress installations or to back up your menu configurations.
 
 == Key Features: ==
 
@@ -29,18 +29,18 @@ Log in to your WordPress dashboard.
 2. Access Plugin Menu:
 On the left panel, click "Plugins" and select "Add New."
 
-3. Search for "Menu Import & Export":
+3. Search for "Import Export Menu":
 On the Add Plugin page, locate the search box in the top right corner.
-Type "Menu Import & Export" in the search box.
+Type "Import Export Menu" in the search box.
 
 4. Install the Plugin:
-After finding the "Menu Import & Export" plugin, click the "Install Now" button below it.
+After finding the "Import Export Menu" plugin, click the "Install Now" button below it.
 
 5. Activate the Plugin:
 Once the installation is complete, click the "Activate" button that appears.
 
 6. You're Ready to Use the Plugin:
-After activation, navigate to the "Menu Import & Export" section in your WordPress dashboard to start importing and exporting menus.
+After activation, navigate to the "Import Export Menu" section in your WordPress dashboard to start importing and exporting menus.
 
 == Frequently Asked Questions ==
 
@@ -54,7 +54,7 @@ The plugin exports menus in a JSON file format, which is then used for importing
 
 = Is the plugin compatible with all WordPress themes? =
 
-Yes, the Menu Import & Export plugin is designed to be compatible with all WordPress themes. It works with any theme that supports the WordPress menu system.
+Yes, the Import Export Menu plugin is designed to be compatible with all WordPress themes. It works with any theme that supports the WordPress menu system.
 
 = Can I use this plugin to migrate menus between different WordPress sites? =
 
