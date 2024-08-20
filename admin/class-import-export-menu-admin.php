@@ -143,7 +143,7 @@ class Import_Export_Menu_Admin {
 	}
 
 	/**
-	 * Registers the top-level admin menu page and adds a submenu page for 'About'.
+	 * Registers the top-level admin menu page and adds a submenu page for 'Import Export'.
 	 *
 	 * This function uses the WordPress add_menu_page() and add_submenu_page() functions to create
 	 * the necessary admin menu structure. It also sets up the callback functions for
@@ -153,11 +153,11 @@ class Import_Export_Menu_Admin {
 	 */
 	function register_admin_menu_page() {
 		add_menu_page(
-			__( 'Import Export Menu', 'import-export-menu' ), // Page title.
-			__( 'Import Export Menu', 'import-export-menu' ), // Menu title.
+			__( 'Import Export', 'import-export-menu' ), // Page title.
+			__( 'Import Export', 'import-export-menu' ), // Menu title.
 			'manage_options', // Capability required.
 			'import-export-menu', // Menu slug.
-			array( $this, 'callback_template_for_settings_menu' ), // Callback function.
+			array( $this, 'callback_template_for_import_export_menu' ), // Callback function.
 			'dashicons-admin-generic', // Icon URL.
 			30 // $position.		
 		);
@@ -173,12 +173,12 @@ class Import_Export_Menu_Admin {
 	}
 
 	/**
-	 * Loads the template for the 'Settings' menu page in the plugin.
+	 * Loads the template for the 'Import Export' menu page in the plugin.
 	 *
 	 * This function constructs the path to the template file located
 	 * in the plugin directory and includes it if it exists.
 	 */
-	function callback_template_for_settings_menu() {
+	function callback_template_for_import_export_menu() {
 		// Define the path to the template file.
 		$template_path = plugin_dir_path( __FILE__ ) . 'partials/import-export-menu.php';
 

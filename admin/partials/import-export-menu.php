@@ -19,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?>
 
 <div class="wrap">
-	<h1><?php esc_html_e( 'Export & Import Menu', 'import-export-menu' ); ?></h1>
+	<h1><?php esc_html_e( 'Import Export Menu', 'import-export-menu' ); ?></h1>
 	<button type="button" class="export">
 		<?php esc_html_e( 'Export Menu', 'import-export-menu' ); ?>
 	</button>
