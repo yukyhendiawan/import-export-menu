@@ -43,25 +43,25 @@ else
 fi
 
 # Read the content of the CHANGELOG.md file and format it
-CHANGELOG_CONTENT=$(cat "$CHANGELOG_FILE" | sed '/^$/d' | sed 's/^\(#\{1,\} \)/\n\1/g')
+# CHANGELOG_CONTENT=$(cat "$CHANGELOG_FILE" | sed '/^$/d' | sed 's/^\(#\{1,\} \)/\n\1/g')
 
-# Update the Changelog section in the README.txt file
-# Remove the existing Changelog content first
-sed -i '/== Changelog ==/,/== Upgrade Notice ==/d' "$README_FILE"
+# # Update the Changelog section in the README.txt file
+# # Remove the existing Changelog content first
+# sed -i '/== Changelog ==/,/== Upgrade Notice ==/d' "$README_FILE"
 
-# Append the new Changelog content
-{
-  echo "== Changelog =="
-  echo "$CHANGELOG_CONTENT"
-  echo ""
-  echo "== Upgrade Notice =="
-} >> "$README_FILE"
+# # Append the new Changelog content
+# {
+#   echo "== Changelog =="
+#   echo "$CHANGELOG_CONTENT"
+#   echo ""
+#   echo "== Upgrade Notice =="
+# } >> "$README_FILE"
 
-if [ $? -eq 0 ]; then
-  echo "Successfully updated the Changelog section in $README_FILE"
-else
-  echo "Failed to update the Changelog section in $README_FILE"
-  exit 1
-fi
+# if [ $? -eq 0 ]; then
+#   echo "Successfully updated the Changelog section in $README_FILE"
+# else
+#   echo "Failed to update the Changelog section in $README_FILE"
+#   exit 1
+# fi
 
 echo "Updated plugin version to $NEW_VERSION"
