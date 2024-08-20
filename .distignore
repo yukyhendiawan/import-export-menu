@@ -19,6 +19,7 @@ vendor
 .stylelintrc
 composer.json
 composer.lock
+gulpfile.js
 package-lock.json
 package.json
 phpcs.xml
