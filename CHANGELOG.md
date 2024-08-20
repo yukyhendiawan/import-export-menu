@@ -1,5 +1,12 @@
 
 
+## [1.2.6](https://github.com/yukyhendiawan/import-export-menu/compare/1.2.5...1.2.6) (2024-08-20)
+
+
+### Bug Fixes
+
+* information readme ([ad432b4](https://github.com/yukyhendiawan/import-export-menu/commit/ad432b461450e1ce26d5edd78df491cdfb44137f))
+
 ## [1.2.5](https://github.com/yukyhendiawan/import-export-menu/compare/1.2.4...1.2.5) (2024-08-20)
 
 
