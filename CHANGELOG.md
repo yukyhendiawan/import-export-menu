@@ -1,5 +1,14 @@
 
 
+## [1.2.7](https://github.com/yukyhendiawan/import-export-menu/compare/1.2.6...1.2.7) (2024-08-21)
+
+
+### Code Refactoring
+
+* assets icon and banner ([f4f02ac](https://github.com/yukyhendiawan/import-export-menu/commit/f4f02ace19128dc652963cb9df0fa934381b6ff1))
+* disable changelog readme.txt file ([a90d179](https://github.com/yukyhendiawan/import-export-menu/commit/a90d1799045ab9e7ffc7220cd211a6689e75348e))
+* release-it package ([b203524](https://github.com/yukyhendiawan/import-export-menu/commit/b2035249f6ce024b80eaf73f7b61377ea9c4f9b9))
+
 ## [1.2.6](https://github.com/yukyhendiawan/import-export-menu/compare/1.2.5...1.2.6) (2024-08-20)
 
 
