@@ -28,7 +28,7 @@
 			"npm run lint:md:docs",
 			"npx prettier --write README.md"			
 		],
-		"before:git:release": "bash ./bin/update-version.sh"
+		"after:bump": "bash ./bin/update-version.sh"
 	},	
 	"plugins": {
 		"@release-it/conventional-changelog": {
