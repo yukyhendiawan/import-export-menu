@@ -97,7 +97,7 @@ if ( file_exists( $plugin_file ) ) {
 
 					<h3><?php esc_html_e( 'Screenshots', 'import-export-menu' ); ?></h3>					
 
-					<img src="https://ps.w.org/import-export-menu/assets/screenshot-1.png?rev=3126044" alt="">
+					<img src="https://ps.w.org/import-export-menu/assets/screenshot-1.png" alt="">
 
 				</div>
 				<div class="col-right ads">
