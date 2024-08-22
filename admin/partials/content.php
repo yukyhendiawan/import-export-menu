@@ -147,7 +147,7 @@ if ( file_exists( $plugin_file ) ) {
 
 						<?php esc_html_e( 'or Through Our Bug Reporting Platform. Include The Information You Have Gathered About The Bug In Your Report. Ensure That You Provide Accurate Contact Details So That We Can Respond To Your Report Promptly.', 'import-export-menu' ); ?>						
 
-						<a class="support" target="_blank" href="https://wordpress.org/support/plugin/import-export-menu/"><?php esc_html_e( ' bug reporting link', 'import-export-menu' ); ?></a></li>
+						<a class="support" target="_blank" href="https://wordpress.org/support/plugin/import-export-menu/"><?php esc_html_e( ' bug reporting link.', 'import-export-menu' ); ?></a></li>
 					</ol>
 
 					<br/>
