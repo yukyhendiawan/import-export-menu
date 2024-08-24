@@ -238,7 +238,7 @@ if ( file_exists( $plugin_file ) ) {
 
 						if ( isset( $data['message'] ) ) {
 							?>
-							<p class="no-releases-found"><?php esc_html_e( 'No releases found.', 'text-domain' ); ?></p>
+							<p class="no-releases-found"><?php esc_html_e( 'No releases found.', 'import-export-menu' ); ?></p>
 							<?php
 						} else {
 							$max_display = 5; // Maximum number of releases to display.
