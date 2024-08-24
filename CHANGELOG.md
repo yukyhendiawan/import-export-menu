@@ -1,5 +1,27 @@
 
 
+## [1.2.8](https://github.com/yukyhendiawan/import-export-menu/compare/1.2.7...1.2.8) (2024-08-24)
+
+
+### Bug Fixes
+
+* **api:** improve logic for fetching GitHub releases ([eac3a75](https://github.com/yukyhendiawan/import-export-menu/commit/eac3a756dea3fc5a0dfa9a0e0287b1a3503252ab))
+* linting css ([b663f1e](https://github.com/yukyhendiawan/import-export-menu/commit/b663f1e8926e0321c039d531717c86190dc15400))
+* text-domain ([5d4d068](https://github.com/yukyhendiawan/import-export-menu/commit/5d4d0685cb1189048cb5507f2ea8bde50389fe92))
+* wp remote get logic data ([6f1f4d4](https://github.com/yukyhendiawan/import-export-menu/commit/6f1f4d4dc5fe00e240cd35bb6eefcab6bd987ce3))
+
+
+### Code Refactoring
+
+* bug reporting link ([ed3a42f](https://github.com/yukyhendiawan/import-export-menu/commit/ed3a42fad804ff43653768a48b77f1dc4b7bc12b))
+* slug submenu page ([ae8e209](https://github.com/yukyhendiawan/import-export-menu/commit/ae8e209ebe367f2c45a801e54f7239e58997b598))
+
+
+### Build System
+
+* add postcss-scss for SCSS linting ([4cde03d](https://github.com/yukyhendiawan/import-export-menu/commit/4cde03d1d6a9ff508dc5e0ee48d0ef5466379c8d))
+* **lint:** add lint:css:all:fix command to fix CSS issues ([1c4549e](https://github.com/yukyhendiawan/import-export-menu/commit/1c4549e797eaccb71d66b4106c2635b6f0ca13aa))
+
 ## [1.2.7](https://github.com/yukyhendiawan/import-export-menu/compare/1.2.6...1.2.7) (2024-08-21)
 
 
