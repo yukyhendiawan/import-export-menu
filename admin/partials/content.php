@@ -236,8 +236,11 @@ if ( file_exists( $plugin_file ) ) {
 						// Decode the JSON response into a PHP array.
 						$data = json_decode( wp_remote_retrieve_body( $response ), true );
 
-						// Check if there are releases.
-						if ( ! empty( $data ) && ( ! isset( $data['documentation_url'] ) || 'https://docs.github.com/rest/overview/resources-in-the-rest-api#rate-limiting' !== $data['documentation_url'] ) ) {
+						if ( isset( $data['message'] ) ) {
+							?>
+							<p class="no-releases-found"><?php esc_html_e( 'No releases found.', 'text-domain' ); ?></p>
+							<?php
+						} else {
 							$max_display = 5; // Maximum number of releases to display.
 							$displayed   = 0;   // Counter for displayed releases.
 
@@ -324,10 +327,6 @@ if ( file_exists( $plugin_file ) ) {
 								</a>
 								<?php
 							}
-						} else {
-							?>
-							<p class="no-releases-found"><?php esc_html_e( 'No releases found.', 'import-export-menu' ); ?></p>
-							<?php
 						}
 					}
 
