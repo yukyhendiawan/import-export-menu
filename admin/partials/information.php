@@ -353,6 +353,7 @@ if ( file_exists( $plugin_file ) ) {
 
 						// Remove commit URLs and convert to HTML list items.
 						$section_text = preg_replace( '/\([^\)]+\)/', '', $section_text );
+						$section_text = preg_replace( '/\*\*[^*]+\*\*/', '', $section_text );
 						$section_text = trim( $section_text );
 						$section_text = preg_replace( '/^\s*\*\s*/m', '<li><span class="' . esc_attr( $info ) . '"></span>', $section_text );
 						$section_text = preg_replace( '/\s*$/m', '</li>', $section_text );
