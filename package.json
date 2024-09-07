@@ -18,15 +18,11 @@
 	},
 	"type": "module",
 	"main": "index.js",
-	"dependencies": {
-		"@wordpress/scripts": "^28.5.0",
-		"release": "^6.3.1",
-		"sort-keys": "^5.0.0"
-	},
 	"devDependencies": {
 		"@commitlint/cli": "^19.4.0",
 		"@commitlint/config-conventional": "^19.2.2",
 		"@release-it/conventional-changelog": "^8.0.1",
+		"@wordpress/scripts": "^28.5.0",
 		"browser-sync": "^3.0.2",
 		"gulp": "^5.0.0",
 		"gulp-clean-css": "^4.3.0",
@@ -41,6 +37,7 @@
 		"postcss-scss": "^4.0.9",
 		"prettier": "3.3.3",
 		"release-it": "^17.6.0",
+		"sort-keys": "^5.0.0",
 		"sort-package-json": "^2.10.0"
 	},
 	"scripts": {
