@@ -1,5 +1,25 @@
 
 
+## [1.2.9](https://github.com/yukyhendiawan/import-export-menu/compare/1.2.8...1.2.9) (2024-10-19)
+
+
+### Styles
+
+* admin page description ([c0d192e](https://github.com/yukyhendiawan/import-export-menu/commit/c0d192e6049c65414deab891d0f315546a84bb06))
+
+
+### Code Refactoring
+
+* changelog admin remove text inside '**' markers ([947d3c0](https://github.com/yukyhendiawan/import-export-menu/commit/947d3c009437aad22af9fd54f1753e11c6a627fd))
+* **package:** restructure and clean up package ([0696f88](https://github.com/yukyhendiawan/import-export-menu/commit/0696f88ad554f8474fdc9bfc95255fafd2e9cca5))
+* prettier setting ([ccb5f0b](https://github.com/yukyhendiawan/import-export-menu/commit/ccb5f0b02415b3bb810d2bc02adfef90e1eb50d7))
+* rules stylelint ([7686d5a](https://github.com/yukyhendiawan/import-export-menu/commit/7686d5a1bbccd0e79912984371f4ec21256e2635))
+
+
+### Build System
+
+* update packages ([ea3f905](https://github.com/yukyhendiawan/import-export-menu/commit/ea3f9057faf3f693c27c7a8f8552460c45ffd9d1))
+
 ## [1.2.8](https://github.com/yukyhendiawan/import-export-menu/compare/1.2.7...1.2.8) (2024-08-24)
 
 
