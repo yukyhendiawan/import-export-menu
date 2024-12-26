@@ -2,7 +2,7 @@
 Contributors: yukyhendiawan
 Tags:              import, export, menu, menus, navigation
 Requires at least: 6.0
-Tested up to:      6.6
+Tested up to:      6.7
 Stable tag:        1.2.9
 Requires PHP:      7.4
 License:           GPL-2.0-or-later
