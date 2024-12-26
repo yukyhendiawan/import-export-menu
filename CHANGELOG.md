@@ -1,5 +1,13 @@
 
 
+## [1.3.0](https://github.com/yukyhendiawan/import-export-menu/compare/1.2.9...1.3.0) (2024-12-26)
+
+
+### Features
+
+* tested up to version 6.7 ([e1eedd5](https://github.com/yukyhendiawan/import-export-menu/commit/e1eedd580eea6d61190bbaee4f1b3f84e534feef))
+* update new packages ([168d8bc](https://github.com/yukyhendiawan/import-export-menu/commit/168d8bc155fe277d960e88272965f20bdb1e694f))
+
 ## [1.2.9](https://github.com/yukyhendiawan/import-export-menu/compare/1.2.8...1.2.9) (2024-10-19)
 
 
