@@ -7,8 +7,7 @@
  * @link       https://yukyhendiawan.com
  * @since      1.0.0
  *
- * @package    Disable_Widgets_Block
- * @subpackage Disable_Widgets_Block/includes
+ * @package    Import_Export_Menu
  */
 
 // Silence is golden.
