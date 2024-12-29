@@ -255,12 +255,12 @@ if ( file_exists( $plugin_file ) ) {
 								// Extract the body content.
 								$body = $release['body'];
 
-								$features_section      = myplugin_extract_section( $body, '### Features', 'feat' );
-								$bug_section           = myplugin_extract_section( $body, '### Bug Fixes', 'fix' );
-								$documentation_section = myplugin_extract_section( $body, '### Documentation', 'docs' );
-								$style_section         = myplugin_extract_section( $body, '### Styles', 'style' );
-								$refactoring_section   = myplugin_extract_section( $body, '### Code Refactoring', 'refactor' );
-								$performance_section   = myplugin_extract_section( $body, '### Performance Improvements', 'perf' );
+								$features_section      = import_export_menu_extract_changelog_from_body( $body, '### Features', 'feat' );
+								$bug_section           = import_export_menu_extract_changelog_from_body( $body, '### Bug Fixes', 'fix' );
+								$documentation_section = import_export_menu_extract_changelog_from_body( $body, '### Documentation', 'docs' );
+								$style_section         = import_export_menu_extract_changelog_from_body( $body, '### Styles', 'style' );
+								$refactoring_section   = import_export_menu_extract_changelog_from_body( $body, '### Code Refactoring', 'refactor' );
+								$performance_section   = import_export_menu_extract_changelog_from_body( $body, '### Performance Improvements', 'perf' );
 
 								?>
 								<section>
@@ -338,7 +338,7 @@ if ( file_exists( $plugin_file ) ) {
 					 * @param string $info The class name for the span element.
 					 * @return string The extracted and formatted section as an HTML list.
 					 */
-					function myplugin_extract_section( $body, $start_marker, $info ) {
+					function import_export_menu_extract_changelog_from_body( $body, $start_marker, $info ) {
 						// Define the start and end markers for the section.
 						$start_pos = strpos( $body, $start_marker );
 						if ( false === $start_pos ) {
