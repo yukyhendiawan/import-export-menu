@@ -1,5 +1,22 @@
 
 
+## [1.3.1](https://github.com/yukyhendiawan/import-export-menu/compare/1.3.0...1.3.1) (2024-12-29)
+
+
+### Bug Fixes
+
+* plugin check new version 1.3.1 ([a34c80c](https://github.com/yukyhendiawan/import-export-menu/commit/a34c80c2002de6d11758a2c040e65fcc67460b41))
+* sass deprecated function import ([b8790cc](https://github.com/yukyhendiawan/import-export-menu/commit/b8790ccaa70612a29a1fc78ffb5a1d2d6fd55934))
+
+
+### Code Refactoring
+
+* file index.php ([885dcd7](https://github.com/yukyhendiawan/import-export-menu/commit/885dcd724129d22e38613bb82729c32d0ffc9982))
+* file index.php docblock comments ([962c0a8](https://github.com/yukyhendiawan/import-export-menu/commit/962c0a808de70ec03c951d7331a179deece31617))
+* function name extract changelog ([ca43621](https://github.com/yukyhendiawan/import-export-menu/commit/ca43621def1f9444bed7864dad4b7ab9b9f2e34f))
+* gitignore ([f909642](https://github.com/yukyhendiawan/import-export-menu/commit/f90964282e7297b83c039511d2f247a8e84c79a2))
+* update new package ([1c7a477](https://github.com/yukyhendiawan/import-export-menu/commit/1c7a477ee95eeec885c27f1965fa01dcc4af2d4d))
+
 ## [1.3.0](https://github.com/yukyhendiawan/import-export-menu/compare/1.2.9...1.3.0) (2024-12-26)
 
 

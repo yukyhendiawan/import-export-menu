@@ -15,7 +15,7 @@
  * Plugin Name:       Import Export Menu
  * Plugin URI:        https://yukyhendiawan.com
  * Description:       This plugin allows you to export and import menus in WordPress, making it easier to manage and migrate menu structures between sites.
- * Version:           1.3.0
+ * Version:           1.3.1
  * Author:            Yuky Hendiawan
  * Author URI:        https://yukyhendiawan.com/
  * License:           GPL-2.0+
@@ -35,7 +35,7 @@ if ( ! defined( 'WPINC' ) ) {
  * Rename this for your plugin and update it as you release new versions.
  */
 define( 'IMPORT_EXPORT_MENU_PLUGIN_NAME', 'Import Export Menu' );
-define( 'IMPORT_EXPORT_MENU_VERSION', '1.3.0' );
+define( 'IMPORT_EXPORT_MENU_VERSION', '1.3.1' );
 
 /**
  * The code that runs during plugin activation.
