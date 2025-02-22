@@ -1,4 +1,9 @@
+# Changelog
 
+## <small>2.0.1 (2025-02-22)</small>
+
+* refactor: admin menu ([40b3d8a](https://github.com/yukyhendiawan/import-export-menu/commit/40b3d8a))
+* fix: looping changelogs ([3b4203f](https://github.com/yukyhendiawan/import-export-menu/commit/3b4203f))
 
 ## [1.3.1](https://github.com/yukyhendiawan/import-export-menu/compare/1.3.0...1.3.1) (2024-12-29)
 
