@@ -215,153 +215,124 @@ if ( file_exists( $plugin_file ) ) {
 							</li>
 						</ul>
 					</div>
+
 					<div class="changelog-list">
-					<?php
-					// GitHub API URL to get the list of releases.
-					$api_url = 'https://api.github.com/repos/yukyhendiawan/import-export-menu/releases';
+						<?php
+						// GitHub API URL to get the list of releases.
+						$api_url = 'https://api.github.com/repos/yukyhendiawan/import-export-menu/releases';
 
-					// Set arguments for wp_remote_get.
-					$args = array(
-						'user-agent' => 'PHP-Curl-Client',
-						'sslverify'  => false, // Disable SSL verification for development.
-					);
+						// Set arguments for wp_remote_get.
+						$args = array(
+							'user-agent' => 'PHP-Curl-Client',
+							'sslverify'  => false, // Disable SSL verification for development.
+						);
 
-					// Make the API request.
-					$response = wp_remote_get( $api_url, $args );
+						// Make the API request.
+						$response = wp_remote_get( $api_url, $args );
 
-					// Check for errors.
-					if ( is_wp_error( $response ) ) {
-						echo esc_html( 'Error: ' . $response->get_error_message() );
-					} else {
-						// Decode the JSON response into a PHP array.
-						$data = json_decode( wp_remote_retrieve_body( $response ), true );
-
-						if ( isset( $data['message'] ) ) {
-							?>
-							<p class="no-releases-found"><?php esc_html_e( 'No releases found.', 'import-export-menu' ); ?></p>
-							<?php
+						// Check for errors.
+						if ( is_wp_error( $response ) ) {
+							echo esc_html( 'Error: ' . $response->get_error_message() );
 						} else {
-							$max_display = 5; // Maximum number of releases to display.
-							$displayed   = 0;   // Counter for displayed releases.
+							// Decode the JSON response into a PHP array.
+							$data = json_decode( wp_remote_retrieve_body( $response ), true );
 
-							// Loop through each release in the data.
-							foreach ( $data as $release ) {
-								// Create a DateTime object from the published_at date.
-								$release_date = new DateTime( $release['published_at'] );
-
-								// Format the date as "Released on Month Day, Year".
-								$formatted_date = $release_date->format( 'F j, Y' );
-
-								// Extract the body content.
-								$body = $release['body'];
-
-								$features_section      = import_export_menu_extract_changelog_from_body( $body, '### Features', 'feat' );
-								$bug_section           = import_export_menu_extract_changelog_from_body( $body, '### Bug Fixes', 'fix' );
-								$documentation_section = import_export_menu_extract_changelog_from_body( $body, '### Documentation', 'docs' );
-								$style_section         = import_export_menu_extract_changelog_from_body( $body, '### Styles', 'style' );
-								$refactoring_section   = import_export_menu_extract_changelog_from_body( $body, '### Code Refactoring', 'refactor' );
-								$performance_section   = import_export_menu_extract_changelog_from_body( $body, '### Performance Improvements', 'perf' );
-
+							if ( isset( $data['message'] ) ) {
 								?>
-								<section>
-									<h2>
-										<?php esc_html_e( 'Version: ', 'import-export-menu' ); ?> 
-										<?php echo esc_html( $release['tag_name'] ); ?>
-										<span>
-											<?php esc_html_e( 'Released On ', 'import-export-menu' ); ?>
-											<?php echo esc_html( $formatted_date ); ?>
-										</span>
-									</h2>
-									<div class="release">
-										<?php if ( ! empty( $features_section ) ) : ?>
-											<ul>
-												<?php echo wp_kses_post( str_replace( array( '(', ')' ), '', $features_section ) ); ?>
-											</ul>
-										<?php endif; ?>
-
-										<?php if ( ! empty( $bug_section ) ) : ?>
-											<ul>
-												<?php echo wp_kses_post( str_replace( array( '(', ')' ), '', $bug_section ) ); ?>
-											</ul>
-										<?php endif; ?>		
-								
-										<?php if ( ! empty( $documentation_section ) ) : ?>
-											<ul>
-												<?php echo wp_kses_post( str_replace( array( '(', ')' ), '', $documentation_section ) ); ?>
-											</ul>
-										<?php endif; ?>										
-
-										<?php if ( ! empty( $style_section ) ) : ?>
-											<ul>
-												<?php echo wp_kses_post( str_replace( array( '(', ')' ), '', $style_section ) ); ?>
-											</ul>
-										<?php endif; ?>
-
-										<?php if ( ! empty( $refactoring_section ) ) : ?>
-											<ul>
-												<?php echo wp_kses_post( str_replace( array( '(', ')' ), '', $refactoring_section ) ); ?>
-											</ul>
-										<?php endif; ?>
-
-										<?php if ( ! empty( $performance_section ) ) : ?>
-											<ul>
-												<?php echo wp_kses_post( str_replace( array( '(', ')' ), '', $performance_section ) ); ?>
-											</ul>
-										<?php endif; ?>
-									</div>
-								</section>
+								<p class="no-releases-found"><?php esc_html_e( 'No releases found.', 'import-export-menu' ); ?></p>
 								<?php
+							} else {
+								$max_display = 1; // Maximum number of releases to display.
+								$displayed   = 0;   // Counter for displayed releases.
 
-								++$displayed;
+								/**
+								 * Extracts changelog data from a given body of text.
+								 *
+								 * This function processes the input body of text, which is expected to follow a specific format,
+								 * and extracts information about commits, including descriptions, commit hashes, commit URLs,
+								 * and commit types (such as 'feat', 'fix', 'docs', etc.).
+								 *
+								 * @param string $body The body of text containing changelog entries with commit details.
+								 * @return array An array of changelog entries, each containing the description, commit hash,
+								 *               commit URL, and commit type.
+								 */
+								function import_export_menu_extract_changelog_from_body( $body ) {
 
+									// Regular expression to match each line starting with '*'.
+									preg_match_all( '/\* (.+?) \(\[([a-f0-9]+)\]\(https:\/\/github\.com\/.*\/commit\/([a-f0-9]+)\)\)/', $body, $matches );
+
+									// Convert matches to an array.
+									$changelog = array();
+									foreach ( $matches[1] as $index => $description ) {
+										// Extract commit type (e.g., refactor, feat, fix).
+										preg_match( '/^(refactor|feat|fix|chore|docs|style|perf|test):/', $description, $commit_type_matches );
+										$commit_info = ! empty( $commit_type_matches ) ? $commit_type_matches[1] : 'other';  // Default to 'other' if not found.
+
+										$changelog[] = array(
+											'description' => $description,
+											'commit_hash' => $matches[2][ $index ],
+											'commit_url'  => 'https://github.com/yukyhendiawan/import-export-menu/commit/' . $matches[3][ $index ],
+											'commit_info' => $commit_info,
+										);
+									}
+
+									return $changelog;
+								}
+
+								// Loop through each release in the data.
+								foreach ( $data as $release ) {
+									// Create a DateTime object from the published_at date.
+									$release_date = new DateTime( $release['published_at'] );
+
+									// Format the date as "Released on Month Day, Year".
+									$formatted_date = $release_date->format( 'F j, Y' );
+
+									// Extract the body content.
+									$body           = $release['body'];
+									$changelog_list = import_export_menu_extract_changelog_from_body( $body );
+									?>
+									<section>
+										<h2>
+											<?php esc_html_e( 'Version: ', 'import-export-menu' ); ?> 
+											<?php echo esc_html( $release['tag_name'] ); ?>
+											<span>
+												<?php esc_html_e( 'Released On ', 'import-export-menu' ); ?>
+												<?php echo esc_html( $formatted_date ); ?>
+											</span>
+										</h2>
+										<div class="release">
+											<ul>
+												<?php foreach ( $changelog_list as $log_item ) : ?>
+													<?php if ( 'other' !== $log_item['commit_info'] ) : ?>
+														<li>
+															<span class="<?php echo esc_attr( $log_item['commit_info'] ); ?>"></span>
+															<?php echo wp_kses_post( $log_item['description'] ); ?>
+														</li>
+													<?php endif; ?>
+												<?php endforeach; ?>
+											</ul>
+										</div>
+									</section>
+									<?php
+
+									++$displayed;
+
+									if ( $displayed >= $max_display ) {
+										break;
+									}
+								}
+
+								// Check if there are more releases than displayed.
 								if ( $displayed >= $max_display ) {
-									break;
+									?>
+									<a id="view-all-releases" target="_blank" href="https://github.com/yukyhendiawan/import-export-menu/releases">
+										<?php esc_html_e( 'View All Releases', 'import-export-menu' ); ?>
+									</a>
+									<?php
 								}
 							}
-
-							// Check if there are more releases than displayed.
-							if ( $displayed >= $max_display ) {
-								?>
-								<a id="view-all-releases" target="_blank" href="https://github.com/yukyhendiawan/import-export-menu/releases">
-									<?php esc_html_e( 'View All Releases', 'import-export-menu' ); ?>
-								</a>
-								<?php
-							}
 						}
-					}
-
-					/**
-					 * Extracts a section from the release body and formats it into an HTML list.
-					 *
-					 * @param string $body The body of the release note.
-					 * @param string $start_marker The start marker for the section.
-					 * @param string $info The class name for the span element.
-					 * @return string The extracted and formatted section as an HTML list.
-					 */
-					function import_export_menu_extract_changelog_from_body( $body, $start_marker, $info ) {
-						// Define the start and end markers for the section.
-						$start_pos = strpos( $body, $start_marker );
-						if ( false === $start_pos ) {
-							return ''; // Section not found.
-						}
-						$start_pos += strlen( $start_marker );
-						$end_pos    = strpos( $body, '###', $start_pos );
-						if ( false === $end_pos ) {
-							$end_pos = strlen( $body ); // To the end of the body if no end marker is found.
-						}
-						$section_text = substr( $body, $start_pos, $end_pos - $start_pos );
-
-						// Remove commit URLs and convert to HTML list items.
-						$section_text = preg_replace( '/\([^\)]+\)/', '', $section_text );
-						$section_text = preg_replace( '/\*\*[^*]+\*\*/', '', $section_text );
-						$section_text = trim( $section_text );
-						$section_text = preg_replace( '/^\s*\*\s*/m', '<li><span class="' . esc_attr( $info ) . '"></span>', $section_text );
-						$section_text = preg_replace( '/\s*$/m', '</li>', $section_text );
-						$section_text = str_replace( "\n\n", '</li><li><span class="' . esc_attr( $info ) . '"></span>', $section_text );
-
-						return $section_text;
-					}
-					?>
+						?>
 					</div>
 				</div>
 				<div class="col-right ads">
