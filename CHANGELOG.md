@@ -1,5 +1,9 @@
 # Changelog
 
+## <small>2.0.3 (2025-04-19)</small>
+
+* fix(admin-menu): changelog lists ([23278f4](https://github.com/yukyhendiawan/import-export-menu/commit/23278f4))
+
 ## <small>2.0.2 (2025-04-19)</small>
 
 * style(admin): improve styling of changelog section ([578ff44](https://github.com/yukyhendiawan/import-export-menu/commit/578ff44))
