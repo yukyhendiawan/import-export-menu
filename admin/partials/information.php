@@ -242,7 +242,7 @@ if ( file_exists( $plugin_file ) ) {
 								<p class="no-releases-found"><?php esc_html_e( 'No releases found.', 'import-export-menu' ); ?></p>
 								<?php
 							} else {
-								$max_display = 2; // Maximum number of releases to display.
+								$max_display = 3; // Maximum number of releases to display.
 								$displayed   = 0;   // Counter for displayed releases.
 
 								/**
@@ -265,7 +265,7 @@ if ( file_exists( $plugin_file ) ) {
 									$changelog = array();
 									foreach ( $matches[1] as $index => $description ) {
 										// Extract commit type (e.g., refactor, feat, fix).
-										preg_match( '/^(refactor|feat|fix|chore|docs|style|perf|test):/', $description, $commit_type_matches );
+										preg_match( '/^(refactor|feat|fix|chore|docs|style|perf|test)(\([^)]+\))?:/', $description, $commit_type_matches );
 										$commit_info = ! empty( $commit_type_matches ) ? $commit_type_matches[1] : 'other';  // Default to 'other' if not found.
 
 										$changelog[] = array(
