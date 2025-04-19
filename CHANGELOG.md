@@ -1,5 +1,10 @@
 # Changelog
 
+## <small>2.0.2 (2025-04-19)</small>
+
+* style(admin): improve styling of changelog section ([578ff44](https://github.com/yukyhendiawan/import-export-menu/commit/578ff44))
+* chore(deps): update all composer and npm dependencies to latest versions ([754ca95](https://github.com/yukyhendiawan/import-export-menu/commit/754ca95))
+
 ## <small>2.0.1 (2025-02-22)</small>
 
 * refactor: admin menu ([40b3d8a](https://github.com/yukyhendiawan/import-export-menu/commit/40b3d8a))
