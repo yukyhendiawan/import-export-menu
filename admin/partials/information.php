@@ -242,7 +242,7 @@ if ( file_exists( $plugin_file ) ) {
 								<p class="no-releases-found"><?php esc_html_e( 'No releases found.', 'import-export-menu' ); ?></p>
 								<?php
 							} else {
-								$max_display = 1; // Maximum number of releases to display.
+								$max_display = 2; // Maximum number of releases to display.
 								$displayed   = 0;   // Counter for displayed releases.
 
 								/**
